@@ -1,19 +1,17 @@
 package com.example.tenantprojectkoala.ui.theme.Home
 
-import androidx.compose.foundation.BorderStroke
+//import androidx.compose.foundation.layout.FlowColumnScopeInstance.align
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-//import androidx.compose.foundation.layout.FlowColumnScopeInstance.align
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
@@ -23,6 +21,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
@@ -38,11 +37,8 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.tenantprojectkoala.R
-import com.example.tenantprojectkoala.navigation.ROUTE_ADD_HOUSE
-import com.example.tenantprojectkoala.navigation.ROUTE_HOME_MAIN
 import com.example.tenantprojectkoala.ui.theme.Blue
 import com.example.tenantprojectkoala.ui.theme.Green
-import com.example.tenantprojectkoala.ui.theme.Orange
 
 @Composable
 fun Homemain(navController: NavController,
@@ -75,10 +71,11 @@ fun Homemain(navController: NavController,
         )
         Spacer(modifier = Modifier.height(10.dp))
         Image(modifier = Modifier
-//            .wrapContentHeight()
+            .wrapContentHeight()
             .fillMaxWidth()
-            .height(220.dp),
-            painter = painterResource(id = R.drawable.iccover) ,
+            .height(220.dp)
+            .scale(1.4f),
+            painter = painterResource(id = R.drawable.logomain) ,
             contentDescription = "Logo")
 
         Spacer(modifier = Modifier.height(10.dp))
@@ -100,11 +97,13 @@ fun Homemain(navController: NavController,
             .align(Alignment.CenterHorizontally)
             .height(160.dp)
             .fillMaxWidth()
-            .padding(15.dp),
+            .padding(10.dp),
             colors = ButtonDefaults.buttonColors(
                 containerColor = Color.Transparent
             ),
             contentPadding = PaddingValues(5.dp),
+
+
             onClick = { onClick() }
 //               modifier = Modifier
 //               .padding(16.dp)
@@ -115,15 +114,21 @@ fun Homemain(navController: NavController,
             Box(
                 modifier = Modifier
                     .background(gradient)
-                    .padding(horizontal = 16.dp, vertical = 8.dp),
+                    .padding(horizontal = 9.dp, vertical = 15.dp)
+                    .fillMaxWidth(),
+
                 contentAlignment = Alignment.Center
+
             ) {
-                Text(text = "A LANDLORD",
+                Text(text = "A LANDLORD?",
                      color = textColor,
+//                    modifier = Modifier
+//                        .width(300.dp),
                     style = TextStyle(
-                        fontSize = 18.sp,
+                        fontSize = 30.sp,
                         fontWeight = FontWeight.Bold,
-                        letterSpacing = 1.5.sp
+                        letterSpacing = 1.5.sp,
+
                     )
                 )
             }
@@ -149,12 +154,12 @@ fun Homemain(navController: NavController,
             .align(Alignment.CenterHorizontally)
             .height(160.dp)
             .fillMaxWidth()
-            .padding(15.dp),
-            border = BorderStroke(2.dp, Color.Black),
-            colors = ButtonDefaults.buttonColors(
-                containerColor = Color.Transparent
-            ),
-            contentPadding = PaddingValues(1.dp),
+            .padding(10.dp)
+            ,
+
+//            border = BorderStroke(3.dp, Color.Black),
+            colors = ButtonDefaults.buttonColors(containerColor = Color.Transparent),
+            contentPadding = PaddingValues(5.dp),
 //            elevation = ButtonDefaults.buttonElevation(
 //                defaultElevation = 8.dp,
 //                pressedElevation = 12.dp
@@ -167,14 +172,14 @@ fun Homemain(navController: NavController,
             Box(
                 modifier = Modifier
                     .background(gradient)
-                    .padding(horizontal = 26.dp, vertical = 15.dp)
-                ,
+                    .padding(horizontal = 9.dp, vertical = 15.dp)
+                    .fillMaxWidth(),
                 contentAlignment = Alignment.Center
             ) {
-                Text(text = "A TENANT",
+                Text(text = "A TENANT?",
                     color = textColor,
                     style = TextStyle(
-                        fontSize = 18.sp,
+                        fontSize = 30.sp,
                         fontWeight = FontWeight.Bold,
                         letterSpacing = 1.5.sp
                     )
@@ -182,25 +187,47 @@ fun Homemain(navController: NavController,
             }
         }
 
+//        Spacer(modifier = Modifier.height(10.dp))
+//        Surface ( modifier = Modifier
+//            .width(150.dp)
+//            .height(70.dp)
+//            .padding(16.dp)
+//            .background(color = Green),
+//            color = Color.LightGray,
+//            // Background color
+//            shape = RoundedCornerShape(6.dp), // Shape (can be CircleShape, RoundedCornerShape, etc.)
+//            shadowElevation = 8.dp, // Elevation for shadow
+//            border = BorderStroke(2.dp, Color.Black), ) {
+//                Text(
+//                    text = "Hello, Surface!",
+//                    fontSize = 24.sp,
+//                    color = Color.Black,
+//                    modifier = Modifier.padding(16.dp)
+//
+//
+//
+//                    ) }
+
+
+    }
+
 
     }
 
 
 
-}
+
 
 
 
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
-fun LoginPreview(){
+fun Home(){
     Homemain(
         rememberNavController(),
         text = "Button",
-        textColor = Color.White,
-        gradient = Brush.verticalGradient(
-        colors = listOf(Blue, Orange, Green)
-    )) {
-
-    }
+        textColor = Color.Black,
+        gradient = Brush.horizontalGradient(
+        colors = listOf(Blue, Green)
+    )) {}
 }
