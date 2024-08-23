@@ -157,8 +157,8 @@ fun LandlordLogin(navController: NavController,
             }
 
             pushStringAnnotation(
-                tag = "REGISTER",
-                annotation = "REGISTER"
+                tag = "REGISTER.",
+                annotation = "REGISTER."
             )
             withStyle(
                 style = SpanStyle(
@@ -170,7 +170,7 @@ fun LandlordLogin(navController: NavController,
                     letterSpacing = 1.8.sp
                 )
             ) {
-                append("REGISTER")
+                append("REGISTER.")
             }
             pop()
         }
@@ -179,34 +179,93 @@ fun LandlordLogin(navController: NavController,
             text = annotatedText,
             onClick = { offset ->
                 annotatedText.getStringAnnotations(
-                    tag = "REGISTER",
+                    tag = "REGISTER.",
                     start = offset,
                     end = offset
                 )[0].let { annotation ->
                     Log.d("Clicked", annotation.item)
                 }
-            }
-        )
-
-        Spacer(modifier = Modifier.height(10.dp))
-
-        Text(text = "Forgot Password?...CLICK HERE",
-            fontSize = 23.sp,
-            color = Color.Black,
-            fontFamily = FontFamily.Monospace,
-            fontStyle = FontStyle.Normal,
-            textAlign = TextAlign.Center,
-            fontWeight = FontWeight.SemiBold,
-            letterSpacing = 1.8.sp,
+            },
             modifier = Modifier
-                .align(Alignment.CenterHorizontally)
-                .padding(15.dp)
-
+                .clip(shape = RoundedCornerShape(10.dp))
+                .fillMaxWidth(),
+            style = TextStyle(
+                textAlign = TextAlign.Center
+            )
         )
+
+
     
 
     }
 
+}
+
+
+@Composable
+fun ForgotPasswordText(modifier: Modifier = Modifier) {
+    Column (
+        modifier = Modifier
+            .clip(shape = RoundedCornerShape(10.dp))
+            .fillMaxHeight()
+            .fillMaxWidth(),
+        verticalArrangement = Arrangement.Bottom,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+    Spacer(modifier = Modifier.height(20.dp))
+    val annotatedText = buildAnnotatedString {
+        // Forgot Password text
+        withStyle(
+            style = SpanStyle(
+                color = Color.Black,
+                letterSpacing = 1.5.sp,
+                fontFamily = FontFamily.Monospace,
+                fontSize = 25.sp,
+                fontWeight = FontWeight.SemiBold
+            )
+        ) {
+            append("Forgot Password...? ")
+        }
+
+        pushStringAnnotation(
+            tag = "CLICK HERE.",
+            annotation = "CLICK HERE."
+        )
+        withStyle(
+            style = SpanStyle(
+                color = Color.Green,
+                textDecoration = TextDecoration.Underline,
+                fontFamily = FontFamily.Monospace,
+                fontWeight = FontWeight.SemiBold,
+                letterSpacing = 1.5.sp,
+                fontSize = 25.sp,
+            )
+        ) {
+            append("CLICK HERE.")
+        }
+        pop()
+    }
+
+    ClickableText(
+        text = annotatedText,
+        onClick = { offset ->
+            annotatedText.getStringAnnotations(
+                tag = "CLICK HERE.",
+                start = offset,
+                end = offset
+            ).firstOrNull()?.let { annotation ->
+                // Handle Forgot Password click
+                Log.d("Clicked", "Forgot Password clicked")
+            }
+        },
+        modifier = Modifier
+            .clip(shape = RoundedCornerShape(10.dp))
+            .fillMaxWidth(),
+        style = TextStyle(
+            textAlign = TextAlign.Center
+        )
+    )
+}
 }
 
 @Preview (showSystemUi = true, showBackground = true)
@@ -219,4 +278,6 @@ LandlordLogin(
     gradient = Brush.horizontalGradient(
         colors = listOf(Blue, Green)
     )) {}
+ForgotPasswordText()
+
 }

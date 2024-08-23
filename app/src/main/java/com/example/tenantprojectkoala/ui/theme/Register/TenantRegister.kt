@@ -1,5 +1,6 @@
 package com.example.tenantprojectkoala.ui.theme.Register
 
+import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -15,6 +16,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.ClickableText
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.OutlinedTextField
@@ -32,11 +34,15 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextDecoration
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -161,18 +167,55 @@ fun TenantRegister(navController: NavController,
 
         Spacer(modifier = Modifier.height(10.dp))
 
-        Text(text = "Already have an account?...LOGIN",
-            fontSize = 23.sp,
-            color = Color.Black,
-            fontFamily = FontFamily.Monospace,
-            fontStyle = FontStyle.Normal,
-            textAlign = TextAlign.Center,
-            fontWeight = FontWeight.SemiBold,
-            letterSpacing = 1.8.sp,
-            modifier = Modifier
-                .align(Alignment.CenterHorizontally)
-                .padding(15.dp)
+        val annotatedText = buildAnnotatedString {
+            withStyle(
+                style = SpanStyle(
+                    color = Color.Black,
+                    fontSize = 25.sp,
+                    fontFamily = FontFamily.Monospace,
+                    fontWeight = FontWeight.SemiBold,
+                )
+            ) {
+                append("Already Have An Account....? ")
 
+            }
+
+            pushStringAnnotation(
+                tag = "LOGIN.",
+                annotation = "LOGIN."
+            )
+            withStyle(
+                style = SpanStyle(
+                    color = Color.Green,
+                    textDecoration = TextDecoration.Underline,
+                    fontFamily = FontFamily.Monospace,
+                    fontWeight = FontWeight.SemiBold,
+                    fontSize = 28.sp,
+                    letterSpacing = 1.8.sp
+                )
+            ) {
+                append("LOGIN.")
+            }
+            pop()
+        }
+
+        ClickableText(
+            text = annotatedText,
+            onClick = { offset ->
+                annotatedText.getStringAnnotations(
+                    tag = "LOGIN.",
+                    start = offset,
+                    end = offset
+                )[0].let { annotation ->
+                    Log.d("Clicked", annotation.item)
+                }
+            },
+            modifier = Modifier
+                .clip(shape = RoundedCornerShape(10.dp))
+                .fillMaxWidth(),
+            style = TextStyle(
+                textAlign = TextAlign.Center
+            )
         )
 
 
