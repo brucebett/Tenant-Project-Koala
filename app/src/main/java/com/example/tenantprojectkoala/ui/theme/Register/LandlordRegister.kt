@@ -28,6 +28,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
@@ -75,6 +76,15 @@ fun LandlordRegister(navController: NavController,
 
 
     ) {
+
+        Spacer(modifier = Modifier.height(10.dp))
+        Image(modifier = Modifier
+            .wrapContentHeight()
+            .fillMaxWidth()
+            .height(220.dp)
+            .scale(1.4f),
+            painter = painterResource(id = R.drawable.registerlogo) ,
+            contentDescription = "Logo")
 
         Spacer(modifier = Modifier.height(10.dp))
         OutlinedTextField(modifier= Modifier

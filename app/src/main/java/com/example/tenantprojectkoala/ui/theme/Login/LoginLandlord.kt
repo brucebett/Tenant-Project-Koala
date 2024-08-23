@@ -1,5 +1,7 @@
 package com.example.tenantprojectkoala.ui.theme.Login
 
+import android.util.Log
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -11,8 +13,10 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.ClickableText
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.OutlinedTextField
@@ -25,18 +29,25 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextDecoration
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import com.example.tenantprojectkoala.R
 import com.example.tenantprojectkoala.ui.theme.Blue
 import com.example.tenantprojectkoala.ui.theme.Green
 import com.example.tenantprojectkoala.ui.theme.Home.Homemain
@@ -62,6 +73,16 @@ fun LandlordLogin(navController: NavController,
         verticalArrangement = Arrangement.Center
     ) {
 
+        Spacer(modifier = Modifier.height(10.dp))
+        Image(modifier = Modifier
+            .wrapContentHeight()
+            .fillMaxWidth()
+            .height(220.dp)
+            .scale(1.7f),
+            painter = painterResource(id = R.drawable.loginlandlord),
+            contentDescription = "Logo")
+
+        Spacer(modifier = Modifier.height(10.dp))
         OutlinedTextField(modifier = Modifier
             .wrapContentWidth()
             .align(Alignment.CenterHorizontally),
@@ -122,18 +143,49 @@ fun LandlordLogin(navController: NavController,
 
         Spacer(modifier = Modifier.height(10.dp))
 
-        Text(text = "Don't have an account yet?...REGISTER",
-            fontSize = 23.sp,
-            color = Color.Black,
-            fontFamily = FontFamily.Monospace,
-            fontStyle = FontStyle.Normal,
-            textAlign = TextAlign.Center,
-            fontWeight = FontWeight.SemiBold,
-            letterSpacing = 1.8.sp,
-            modifier = Modifier
-                .align(Alignment.CenterHorizontally)
-                .padding(15.dp)
+        val annotatedText = buildAnnotatedString {
+            withStyle(
+                style = SpanStyle(
+                    color = Color.Black,
+                    fontSize = 25.sp,
+                    fontFamily = FontFamily.Monospace,
+                    fontWeight = FontWeight.SemiBold,
+                )
+            ) {
+                append("Don't Have An Account Yet....? ")
 
+            }
+
+            pushStringAnnotation(
+                tag = "REGISTER",
+                annotation = "REGISTER"
+            )
+            withStyle(
+                style = SpanStyle(
+                    color = Color.Green,
+                    textDecoration = TextDecoration.Underline,
+                    fontFamily = FontFamily.Monospace,
+                    fontWeight = FontWeight.SemiBold,
+                    fontSize = 28.sp,
+                    letterSpacing = 1.8.sp
+                )
+            ) {
+                append("REGISTER")
+            }
+            pop()
+        }
+
+        ClickableText(
+            text = annotatedText,
+            onClick = { offset ->
+                annotatedText.getStringAnnotations(
+                    tag = "REGISTER",
+                    start = offset,
+                    end = offset
+                )[0].let { annotation ->
+                    Log.d("Clicked", annotation.item)
+                }
+            }
         )
 
         Spacer(modifier = Modifier.height(10.dp))
