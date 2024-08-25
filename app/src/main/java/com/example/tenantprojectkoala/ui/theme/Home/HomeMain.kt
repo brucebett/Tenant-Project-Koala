@@ -37,6 +37,9 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.tenantprojectkoala.R
+import com.example.tenantprojectkoala.navigation.ROUTE_LANDLORD_REGISTER
+import com.example.tenantprojectkoala.navigation.ROUTE_TENANT_LOGIN
+import com.example.tenantprojectkoala.navigation.ROUTE_TENANT_REGISTER
 import com.example.tenantprojectkoala.ui.theme.Blue
 import com.example.tenantprojectkoala.ui.theme.Green
 
@@ -104,7 +107,7 @@ fun Homemain(navController: NavController,
             contentPadding = PaddingValues(5.dp),
 
 
-            onClick = { onClick() }
+            onClick = { navController.navigate(ROUTE_LANDLORD_REGISTER) }
 //               modifier = Modifier
 //               .padding(16.dp)
 //               .height(50.dp)
@@ -164,7 +167,7 @@ fun Homemain(navController: NavController,
 //                defaultElevation = 8.dp,
 //                pressedElevation = 12.dp
 //            ),
-            onClick = { onClick() }
+            onClick = { navController.navigate(ROUTE_TENANT_REGISTER)}
 
 
         )

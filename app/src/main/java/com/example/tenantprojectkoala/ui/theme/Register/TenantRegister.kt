@@ -49,6 +49,8 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.tenantprojectkoala.R
+import com.example.tenantprojectkoala.navigation.ROUTE_TENANT_LOGIN
+import com.example.tenantprojectkoala.navigation.ROUTE_TENANT_REGISTER
 import com.example.tenantprojectkoala.ui.theme.Blue
 import com.example.tenantprojectkoala.ui.theme.Green
 
@@ -142,7 +144,7 @@ fun TenantRegister(navController: NavController,
 //            border = BorderStroke(3.dp, Color.Black),
             colors = ButtonDefaults.buttonColors(containerColor = Color.Transparent),
             contentPadding = PaddingValues(5.dp),
-            onClick = { onClick() }
+            onClick = { navController.navigate(ROUTE_TENANT_LOGIN) }
 
 
         )
@@ -201,13 +203,15 @@ fun TenantRegister(navController: NavController,
 
         ClickableText(
             text = annotatedText,
-            onClick = { offset ->
+            onClick = {
+                offset ->
                 annotatedText.getStringAnnotations(
                     tag = "LOGIN.",
                     start = offset,
                     end = offset
                 )[0].let { annotation ->
                     Log.d("Clicked", annotation.item)
+                    navController.navigate(ROUTE_TENANT_LOGIN)
                 }
             },
             modifier = Modifier

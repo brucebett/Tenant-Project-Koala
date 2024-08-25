@@ -1,17 +1,17 @@
-package com.example.tenantprojectkoala.ui.theme.Home
+package com.example.tenantprojectkoala.ui.theme.Searchhouse
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 
 @Composable
-fun HomeLandlord() {
+fun ViewHouses() {
 
 }
 
 
 @Preview (showSystemUi = true, showBackground = true)
 @Composable
-fun HomeLandlordPreview() {
-    HomeLandlord()
+fun ViewHousesPreview() {
+    ViewHouses()
 }

@@ -48,6 +48,8 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.tenantprojectkoala.R
+import com.example.tenantprojectkoala.navigation.ROUTE_HOME_LANDLORD
+import com.example.tenantprojectkoala.navigation.ROUTE_LANDLORD_REGISTER
 import com.example.tenantprojectkoala.ui.theme.Blue
 import com.example.tenantprojectkoala.ui.theme.Green
 import com.example.tenantprojectkoala.ui.theme.Home.Homemain
@@ -118,7 +120,7 @@ fun LandlordLogin(navController: NavController,
 //                defaultElevation = 8.dp,
 //                pressedElevation = 12.dp
 //            ),
-            onClick = { onClick() }
+            onClick = { navController.navigate(ROUTE_HOME_LANDLORD) }
 
 
         )
@@ -184,6 +186,7 @@ fun LandlordLogin(navController: NavController,
                     end = offset
                 )[0].let { annotation ->
                     Log.d("Clicked", annotation.item)
+                    navController.navigate(ROUTE_LANDLORD_REGISTER)
                 }
             },
             modifier = Modifier
