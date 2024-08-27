@@ -114,13 +114,9 @@ fun TenantLogin(navController: NavController,
             .width(200.dp)
             .padding(10.dp),
 
-//            border = BorderStroke(3.dp, Color.Black),
             colors = ButtonDefaults.buttonColors(containerColor = Color.Transparent),
             contentPadding = PaddingValues(5.dp),
-//            elevation = ButtonDefaults.buttonElevation(
-//                defaultElevation = 8.dp,
-//                pressedElevation = 12.dp
-//            ),
+
             onClick = { navController.navigate(ROUTE_HOME_TENANT) }
 
 

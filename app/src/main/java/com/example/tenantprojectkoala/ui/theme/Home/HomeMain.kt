@@ -61,7 +61,7 @@ fun Homemain(navController: NavController,
         Text(
             text = "You Are Welcome",
             fontSize = 35.sp,
-            color = Color.Green,
+            color = Color.Black,
             fontFamily = FontFamily.Monospace,
             fontStyle = FontStyle.Normal,
             textAlign = TextAlign.Center,
