@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "182502145768",
+    "project_id": "tenant-project-koala",
+    "storage_bucket": "tenant-project-koala.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:182502145768:android:f26ba6489ad215e663d35d",
+        "android_client_info": {
+          "package_name": "com.example.tenantprojectkoala"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDRjskwMc9jFSQyThiR68f-Yo5dfZPtdGc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

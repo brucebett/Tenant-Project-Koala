@@ -32,6 +32,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextStyle
@@ -48,12 +49,11 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.tenantprojectkoala.R
+import com.example.tenantprojectkoala.data.AuthViewModel
 import com.example.tenantprojectkoala.navigation.ROUTE_HOME_LANDLORD
 import com.example.tenantprojectkoala.navigation.ROUTE_LANDLORD_REGISTER
 import com.example.tenantprojectkoala.ui.theme.Blue
 import com.example.tenantprojectkoala.ui.theme.Green
-import com.example.tenantprojectkoala.ui.theme.Home.Homemain
-
 @Composable
 fun LandlordLogin(navController: NavController,
                   text: String,
@@ -107,20 +107,20 @@ fun LandlordLogin(navController: NavController,
             } )
 
         Spacer(modifier = Modifier.height(10.dp))
+        val context = LocalContext.current
         Button(modifier = Modifier
             .align(Alignment.CenterHorizontally)
             .height(140.dp)
             .width(200.dp)
             .padding(10.dp),
 
-//            border = BorderStroke(3.dp, Color.Black),
             colors = ButtonDefaults.buttonColors(containerColor = Color.Transparent),
             contentPadding = PaddingValues(5.dp),
-//            elevation = ButtonDefaults.buttonElevation(
-//                defaultElevation = 8.dp,
-//                pressedElevation = 12.dp
-//            ),
-            onClick = { navController.navigate(ROUTE_HOME_LANDLORD) }
+//
+            onClick = {
+                val mylogin = AuthViewModel(navController, context)
+                mylogin.login(email.trim(),password.trim())
+                navController.navigate(ROUTE_HOME_LANDLORD) }
 
 
         )

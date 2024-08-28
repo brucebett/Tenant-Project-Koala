@@ -50,6 +50,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.tenantprojectkoala.R
+import com.example.tenantprojectkoala.data.AuthViewModel
 import com.example.tenantprojectkoala.navigation.ROUTE_LANDLORD_LOGIN
 import com.example.tenantprojectkoala.ui.theme.Blue
 import com.example.tenantprojectkoala.ui.theme.Green
@@ -141,10 +142,12 @@ fun LandlordRegister(navController: NavController,
             .width(220.dp)
             .padding(10.dp),
 
-//            border = BorderStroke(3.dp, Color.Black),
             colors = ButtonDefaults.buttonColors(containerColor = Color.Transparent),
             contentPadding = PaddingValues(5.dp),
-            onClick = { navController.navigate(ROUTE_LANDLORD_LOGIN) }
+            onClick = { val register = AuthViewModel(navController, context)
+                       register.signup(firstName.trim(),secondName.trim(),email.trim(),
+                           password.trim())
+                navController.navigate(ROUTE_LANDLORD_LOGIN) }
 
 
         )

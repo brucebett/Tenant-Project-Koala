@@ -33,6 +33,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextStyle
@@ -49,6 +50,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.tenantprojectkoala.R
+import com.example.tenantprojectkoala.data.AuthViewModel
 import com.example.tenantprojectkoala.navigation.ROUTE_HOME_TENANT
 import com.example.tenantprojectkoala.navigation.ROUTE_TENANT_REGISTER
 import com.example.tenantprojectkoala.ui.theme.Blue
@@ -108,6 +110,7 @@ fun TenantLogin(navController: NavController,
             } )
 
         Spacer(modifier = Modifier.height(10.dp))
+        val context = LocalContext.current
         Button(modifier = Modifier
             .align(Alignment.CenterHorizontally)
             .height(140.dp)
@@ -117,7 +120,10 @@ fun TenantLogin(navController: NavController,
             colors = ButtonDefaults.buttonColors(containerColor = Color.Transparent),
             contentPadding = PaddingValues(5.dp),
 
-            onClick = { navController.navigate(ROUTE_HOME_TENANT) }
+            onClick = {
+                val  mylogin = AuthViewModel(navController, context)
+                mylogin.login(email.trim(), password.trim())
+                navController.navigate(ROUTE_HOME_TENANT) }
 
 
         )
