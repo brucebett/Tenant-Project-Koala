@@ -1,22 +1,19 @@
 package com.example.tenantprojectkoala.navigation
 
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.tenantprojectkoala.ui.theme.Addhouses.UploadHouses
+import com.example.tenantprojectkoala.ui.theme.Upploadhouses.UploadHouses
 import com.example.tenantprojectkoala.ui.theme.Blue
 import com.example.tenantprojectkoala.ui.theme.Green
 import com.example.tenantprojectkoala.ui.theme.Home.HomeLandlord
 import com.example.tenantprojectkoala.ui.theme.Home.HomeTenant
 import com.example.tenantprojectkoala.ui.theme.Home.Homemain
 import com.example.tenantprojectkoala.ui.theme.Login.LandlordLogin
-import com.example.tenantprojectkoala.ui.theme.Orange
 import com.example.tenantprojectkoala.ui.theme.Register.LandlordRegister
 import com.example.tenantprojectkoala.ui.theme.Register.TenantRegister
 import com.example.tenantprojectkoala.ui.theme.Searchhouse.ViewHouses

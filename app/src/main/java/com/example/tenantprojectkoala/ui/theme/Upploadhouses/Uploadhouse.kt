@@ -1,4 +1,4 @@
-package com.example.tenantprojectkoala.ui.theme.Addhouses
+package com.example.tenantprojectkoala.ui.theme.Upploadhouses
 
 import android.net.Uri
 import androidx.activity.compose.rememberLauncherForActivityResult
@@ -19,7 +19,6 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
