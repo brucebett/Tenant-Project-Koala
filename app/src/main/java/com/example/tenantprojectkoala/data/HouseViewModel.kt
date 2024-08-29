@@ -116,7 +116,7 @@ class HouseViewModel (var navController: NavController,var context: Context) {
 
             }
             }else{
-                val editedHouse = House(currentImageUrl, price, size, location, phonenumber, description, id)
+                 val editedHouse = House(currentImageUrl, price, size, location, phonenumber, description, id)
                   databaseReference.setValue(editedHouse)
                       .addOnCompleteListener { task ->
                           if (task.isSuccessful){

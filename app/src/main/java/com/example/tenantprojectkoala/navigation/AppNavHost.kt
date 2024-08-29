@@ -9,6 +9,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.tenantprojectkoala.ui.theme.Upploadhouses.UploadHouses
 import com.example.tenantprojectkoala.ui.theme.Blue
+import com.example.tenantprojectkoala.ui.theme.Edithouses.EditHouse
 import com.example.tenantprojectkoala.ui.theme.Green
 import com.example.tenantprojectkoala.ui.theme.Home.HomeLandlord
 import com.example.tenantprojectkoala.ui.theme.Home.HomeTenant
@@ -69,6 +70,11 @@ NavHost(navController = navController, startDestination = startDestination) {
     composable(ROUTE_UPLOAD_HOUSE){ UploadHouses() }
 
     composable(ROUTE_VIEW_HOUSES){ ViewHouses()}
+
+//    composable(ROUTE_EDIT_HOUSE="/$id"){
+//        passedData -> EditHouse(
+//            navController,passedData.arguments?.getString("id")!!
+//        )}
 
     }
 
