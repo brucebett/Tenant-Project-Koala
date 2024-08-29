@@ -106,27 +106,7 @@ Text(text = "Upload House Details",
     .padding(10.dp)
     .background(brush = Brush.horizontalGradient(colors = listOf(Green, Blue))),
   )
-      Row(modifier = Modifier
-        .fillMaxWidth()
-        .padding(10.dp),
-        horizontalArrangement = Arrangement.SpaceBetween) {
-        Button(modifier = Modifier
-          .background(brush = Brush.horizontalGradient(colors = listOf(Green, Blue)))
-          .padding(10.dp)
-          .height(60.dp)
-          .width(120.dp),
-          onClick = { /*TODO*/ }) {
-          Text(text = "Back")
-        }
-        Button(modifier = Modifier
-          .background(brush = Brush.horizontalGradient(colors = listOf(Green, Blue)))
-          .padding(10.dp)
-          .height(60.dp)
-          .width(120.dp),
-          onClick = { /*TODO*/ }) {
-          Text(text = "Save")
-        }
-      }
+
       Column(modifier = Modifier.fillMaxWidth(),
         horizontalAlignment = Alignment.CenterHorizontally) {
         Card(shape = RectangleShape,
@@ -201,6 +181,28 @@ Text(text = "Upload House Details",
         onValueChange = {
             newName -> description = newName
         })
+
+      Row(modifier = Modifier
+        .fillMaxWidth()
+        .padding(10.dp),
+        horizontalArrangement = Arrangement.SpaceBetween) {
+        Button(modifier = Modifier
+          .background(brush = Brush.horizontalGradient(colors = listOf(Green, Blue)))
+          .padding(10.dp)
+          .height(60.dp)
+          .width(120.dp),
+          onClick = { /*TODO*/ }) {
+          Text(text = "Back")
+        }
+        Button(modifier = Modifier
+          .background(brush = Brush.horizontalGradient(colors = listOf(Green, Blue)))
+          .padding(10.dp)
+          .height(60.dp)
+          .width(120.dp),
+          onClick = { /*TODO*/ }) {
+          Text(text = "Save")
+        }
+      }
 
     }
 
