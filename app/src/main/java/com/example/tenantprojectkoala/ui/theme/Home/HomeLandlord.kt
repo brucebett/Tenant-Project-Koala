@@ -39,6 +39,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontStyle
@@ -46,6 +47,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+//import androidx. compose. material. OutlinedTextFieldDefaults
 import coil.size.Scale
 //import androidx.constraintlayout.compose.ConstraintLayout
 import com.example.tenantprojectkoala.R
@@ -102,7 +104,9 @@ fun HomeLandlord() {
                 .fillMaxWidth()
                 .height(245.dp)
                 .background(
-                    Color.Green,
+                    brush = Brush.horizontalGradient(
+                        colors = listOf(Color.Green, Color.Blue)
+                    ),
                     shape = RoundedCornerShape(bottomEnd = 40.dp, bottomStart = 40.dp)
                 )
 
@@ -223,25 +227,50 @@ fun HomeLandlord() {
                     )
                 }
             }
+
+
+            var text by rememberSaveable { mutableStateOf("") }
+
+            TextField(
+                value = text,
+                onValueChange = { text = it },
+                label = { Text(text = "Search for...") },
+                trailingIcon = {
+                    Image(
+                        painter = painterResource(id = R.drawable.search_24),
+                        contentDescription = null,
+                        modifier = Modifier
+                            .size(43.dp)
+                            .padding(end = 6.dp)
+                    )
+                },
+                shape = RoundedCornerShape(50.dp),
+//            colors = TextFieldDefaults.outlinedTextFieldColors(
+//                focusedLabelColor = Color(android.graphics.Color.parseColor("#5e5e5e")),
+//                unfocusedLabelColor = Color(android.graphics.Color.parseColor("#5e5e5e")),
+//                focusedBorderColor = Color.Transparent,
+//                unfocusedBorderColor = Color.Transparent
+//            )
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 24.dp, end = 24.dp, start = 24.dp)
+                    .shadow(3.dp, shape = RoundedCornerShape(25.dp))
+            )
+
+            Box (modifier = Modifier
+                .fillMaxWidth()
+                .padding(top = 24.dp, end = 24.dp, start = 24.dp)
+                .height(145.dp)
+                .background(
+                    brush = Brush.horizontalGradient(
+                        colors = listOf(Color.Green, Color.Blue)),
+                    shape = RoundedCornerShape(20.dp)
+                )
+            ){
+
+            }
         }
 
-        var text by rememberSaveable { mutableStateOf("") }
-        TextField(value = text, onValueChange = {text=it},
-            label = { Text(text = "Search for...")},
-            trailingIcon = {
-                Image(painter = painterResource(id = R.drawable.search_24),
-                     contentDescription = null,
-                    modifier = Modifier
-                        .size(43.dp)
-                        .padding(end = 6.dp))
-            },
-            shape = RoundedCornerShape(50.dp),
-            colors = TextFieldDefaults.outlinedTextFieldColors(
-                backgroundColor = Color.White,
-                focusedBorderColor = Color.Transparent,
-
-            )
-        )
     }
 }
 
