@@ -10,7 +10,9 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentWidth
@@ -165,6 +167,39 @@ fun EditHouse(navController: NavController, id: String) {
             placeholder = { Text(text = "Please Enter House Size")},
             value = size, 
             onValueChange = { newName -> size = newName })
+
+        Spacer(modifier = Modifier.height(10.dp))
+        OutlinedTextField(
+            modifier = Modifier.wrapContentWidth().align(Alignment.CenterHorizontally),
+            label = { Text(text = "Enter House Price") },
+            placeholder = { Text(text = "Please Enter House Price") },
+            value = price,
+            onValueChange = { newAge -> price = newAge }
+        )
+        Spacer(modifier = Modifier.height(10.dp))
+        OutlinedTextField(
+            modifier = Modifier.wrapContentWidth().align(Alignment.CenterHorizontally),
+            label = { Text(text = "Enter House Location") },
+            placeholder = { Text(text = "Please Enter House Location") },
+            value = location,
+            onValueChange = { newAge -> location = newAge }
+        )
+        Spacer(modifier = Modifier.height(10.dp))
+        OutlinedTextField(
+            modifier = Modifier.wrapContentWidth().align(Alignment.CenterHorizontally),
+            label = { Text(text = "Enter your Phone Number") },
+            placeholder = { Text(text = "Please Enter your Phone Number") },
+            value = phonenumber,
+            onValueChange = { newAge -> phonenumber = newAge }
+        )
+        Spacer(modifier = Modifier.height(10.dp))
+        OutlinedTextField(
+            modifier = Modifier.wrapContentWidth().align(Alignment.CenterHorizontally),
+            label = { Text(text = "Enter House Description") },
+            placeholder = { Text(text = "Please Enter your House Description") },
+            value = description,
+            onValueChange = { newAge -> description = newAge }
+        )
     }
 }
 
