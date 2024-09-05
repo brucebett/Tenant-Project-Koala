@@ -133,7 +133,7 @@ fun HomeLandlord() {
                        color = Color.White,
                        fontSize = 30.sp,
                        fontWeight = FontWeight.Bold,
-                       modifier = Modifier.padding(top = 14.dp, start = 5.dp)
+                       modifier = Modifier.padding(top = 8.dp, start = 5.dp)
 
                    )
                }
@@ -146,89 +146,6 @@ fun HomeLandlord() {
             }
 
             }
-            Row (modifier = Modifier
-                .fillMaxWidth()
-                .padding(top = 24.dp, start = 24.dp, end = 24.dp)
-                .background(Color.White, shape = RoundedCornerShape(20.dp))
-                .shadow(3.dp, shape = RoundedCornerShape(20.dp)),
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.Center
-
-            ){
-                Column (modifier = Modifier
-                    .padding(top = 12.dp, bottom = 12.dp, end = 12.dp, start = 15.dp)
-                    .height(80.dp)
-                    .width(80.dp)
-                    .background(
-                        color = Color.LightGray,
-                        shape = RoundedCornerShape(15.dp)
-                    ),
-                    horizontalAlignment = Alignment.CenterHorizontally
-                ){
-                    Image(painter = painterResource(id = R.drawable.baseline_video_call_24),
-                        contentDescription = null,
-                        modifier = Modifier
-                            .padding(top = 3.dp,)
-                            .size(50.dp)
-                    )
-                    Text(text = "Video call",
-                        fontSize = 14.sp,
-                        fontWeight = FontWeight.Bold,
-                        fontStyle = FontStyle.Italic,
-                        color = Color.Magenta
-                    )
-                }
-
-                Column (modifier = Modifier
-                    .padding(top = 12.dp, bottom = 12.dp, end = 12.dp, start = 15.dp)
-                    .height(80.dp)
-                    .width(80.dp)
-                    .background(
-                        color = Color.LightGray,
-                        shape = RoundedCornerShape(15.dp)
-                    ),
-                    horizontalAlignment = Alignment.CenterHorizontally
-                ){
-                    Image(painter = painterResource(id = R.drawable.phone_24),
-                        contentDescription = null,
-                        modifier = Modifier
-                            .padding(top = 3.dp,)
-                            .size(50.dp)
-                    )
-                    Text(text = "Phone call",
-                        fontSize = 14.sp,
-                        fontWeight = FontWeight.Bold,
-                        fontStyle = FontStyle.Italic,
-                        color = Color.Magenta
-                    )
-                }
-
-                Column (modifier = Modifier
-                    .padding(top = 12.dp, bottom = 12.dp, end = 12.dp, start = 15.dp)
-                    .height(80.dp)
-                    .width(80.dp)
-                    .background(
-                        color = Color.LightGray,
-                        shape = RoundedCornerShape(15.dp)
-                    ),
-                    horizontalAlignment = Alignment.CenterHorizontally
-                ){
-                    Image(painter = painterResource(id = R.drawable.voice_24),
-                        contentDescription = null,
-                        modifier = Modifier
-                            .padding(top = 3.dp,)
-                            .size(50.dp)
-                    )
-                    Text(text = "Voice call",
-                        fontSize = 14.sp,
-                        fontWeight = FontWeight.Bold,
-                        fontStyle = FontStyle.Italic,
-                        color = Color.Magenta
-                    )
-                }
-            }
-
-
             var text by rememberSaveable { mutableStateOf("") }
 
             TextField(
@@ -256,6 +173,93 @@ fun HomeLandlord() {
                     .padding(top = 24.dp, end = 24.dp, start = 24.dp)
                     .shadow(3.dp, shape = RoundedCornerShape(25.dp))
             )
+            Row (modifier = Modifier
+                .fillMaxWidth()
+                .padding(top = 24.dp, start = 24.dp, end = 24.dp)
+                .background(
+                    brush = Brush.horizontalGradient(
+                        colors = listOf(Color.Green, Color.Blue)),
+                    shape = RoundedCornerShape(20.dp)
+                ),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.Center
+
+            ){
+                Column (modifier = Modifier
+                    .padding(top = 12.dp, bottom = 12.dp, end = 12.dp, start = 15.dp)
+                    .height(80.dp)
+                    .width(80.dp)
+                    .background(
+                        color = Color.LightGray,
+                        shape = RoundedCornerShape(15.dp)
+                    ),
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ){
+                    Image(painter = painterResource(id = R.drawable.edit_24),
+                        contentDescription = null,
+                        modifier = Modifier
+                            .padding(top = 3.dp,)
+                            .size(50.dp)
+                    )
+                    Text(text = "Edit Houses",
+                        fontSize = 14.sp,
+                        fontWeight = FontWeight.Bold,
+                        fontStyle = FontStyle.Italic,
+                        color = Color.Magenta
+                    )
+                }
+
+                Column (modifier = Modifier
+                    .padding(top = 12.dp, bottom = 12.dp, end = 12.dp, start = 15.dp)
+                    .height(80.dp)
+                    .width(80.dp)
+                    .background(
+                        color = Color.LightGray,
+                        shape = RoundedCornerShape(15.dp)
+                    ),
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ){
+                    Image(painter = painterResource(id = R.drawable.upload_24),
+                        contentDescription = null,
+                        modifier = Modifier
+                            .padding(top = 3.dp,)
+                            .size(50.dp)
+                    )
+                    Text(text = "Upload ",
+                        fontSize = 14.sp,
+                        fontWeight = FontWeight.Bold,
+                        fontStyle = FontStyle.Italic,
+                        color = Color.Magenta
+                    )
+                }
+
+                Column (modifier = Modifier
+                    .padding(top = 12.dp, bottom = 12.dp, end = 12.dp, start = 15.dp)
+                    .height(80.dp)
+                    .width(80.dp)
+                    .background(
+                        color = Color.LightGray,
+                        shape = RoundedCornerShape(15.dp)
+                    ),
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ){
+                    Image(painter = painterResource(id = R.drawable.logout_24),
+                        contentDescription = null,
+                        modifier = Modifier
+                            .padding(top = 3.dp,)
+                            .size(50.dp)
+                    )
+                    Text(text = "Log Out",
+                        fontSize = 14.sp,
+                        fontWeight = FontWeight.Bold,
+                        fontStyle = FontStyle.Italic,
+                        color = Color.Magenta
+                    )
+                }
+            }
+
+
+
 
             Box (modifier = Modifier
                 .fillMaxWidth()
